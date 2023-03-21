@@ -55,4 +55,4 @@ docker run --gpus all --memory 64g --memory-swap -1 -d -v transformers:/transfor
 ```
 
 Visit url:
-[Jupyter localhost](http://127.0.0.1:8888/login?next=%2Flab%3F)
+[Jupyter localhost](http://127.0.0.1:8888/lab)
