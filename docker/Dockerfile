@@ -41,8 +41,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
 # install globally
 RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
 
+WORKDIR /transformers
 ADD start.sh /
-
 RUN chmod +x /start.sh
 
 CMD [ "/start.sh" ]

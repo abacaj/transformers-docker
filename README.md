@@ -29,7 +29,7 @@ docker volume create transformers
 Run container with a maximum memory allocation, assign as much RAM as you need/system can support minus a small window. In some cases assigning max system memory could result in your system freezing when loading large models:
 
 ```bash
-docker run --gpus all --memory 64g --memory-swap -1 -it -v transformers:/transformers abacaj90/pytorch2:cuda12.0.0
+docker run --gpus all --memory 64g --memory-swap -1 -it -v transformers:/transformers abacaj90/pytorch2:cuda12.0.0 /bin/bash --rcfile /transformers/venv/bin/activate
 ```
 
 ## Using VSCode
@@ -51,7 +51,7 @@ docker build -t pytorch2:cuda12.0.0 -f docker/Dockerfile docker/
 Password is set to 1234
 
 ```bash
-docker run --gpus all --memory 64g --memory-swap -1 -it -v transformers:/transformers -e JUPYTER_PASSWORD=1234 -p 8888:8888 abacaj90/pytorch2:cuda12.0.0
+docker run --gpus all --memory 64g --memory-swap -1 -d -v transformers:/transformers -e JUPYTER_PASSWORD=1234 -p 8888:8888 abacaj90/pytorch2:cuda12.0.0
 ```
 
 Visit url:
