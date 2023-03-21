@@ -12,6 +12,11 @@ The workflow:
 4. Write code
 5. Run code
 
+Uses:
+
+- cuda 12.0.0
+- torch 2.0
+
 ## Run container from docker hub
 
 Recommended to add a volume:
@@ -30,4 +35,12 @@ docker run --gpus all --memory 64g --memory-swap -1 -it -v transformers:/transfo
 
 ```bash
 docker build -t pytorch2:cuda12.0.0 -f docker/Dockerfile docker/
+```
+
+## Run with jupyter started on port 8888
+
+Password is set to 1234
+
+```bash
+docker run --gpus all --memory 64g --memory-swap -1 -it -v transformers:/transformers -e JUPYTER_PASSWORD=1234 -p 8888:8888 abacaj90/pytorch2:cuda12.0.0
 ```
