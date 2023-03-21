@@ -12,8 +12,9 @@ The workflow:
 4. Write code
 5. Run code
 
-Uses:
+Versions:
 
+- python 3.10
 - cuda 12.0.0
 - torch 2.0
 
@@ -37,7 +38,7 @@ Steps:
 
 - Attach to the dev container
 - Install python extension into the container from vscode extension tab
-- Select interpreter located at: `/opt/venv/bin/python`
+- Select interpreter located at: `/transformers/venv/bin/python`
 
 ## Build your own container
 

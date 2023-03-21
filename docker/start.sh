@@ -19,6 +19,10 @@ then
     jupyter lab --allow-root --no-browser --port=8888 --ip=* --ServerApp.terminado_settings='{"shell_command":["/bin/bash"]}' --ServerApp.token=$JUPYTER_PASSWORD --ServerApp.allow_origin=* --ServerApp.preferred_dir=/workspace > jupyter.log 2>&1 & disown
 fi
 
+# create the env
+mkdir -p transformers
+python -m venv --system-site-packages /usr/local/lib/python3.10/dist-packages transformers/venv
+
 # load env
-echo "env ready"
-cd /transformers && /bin/bash --rcfile /opt/venv/bin/activate
+echo "env loaded"
+cd /transformers && /bin/bash --rcfile /transformers/venv/bin/activate

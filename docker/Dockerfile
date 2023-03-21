@@ -38,9 +38,7 @@ RUN jupyter nbextension enable --py widgetsnbextension
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 
-ENV VENV=/opt/venv
-RUN python -m venv $VENV
-ENV PATH="$VENV/bin:$PATH"
+# install globally
 RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
 
 ADD start.sh /
