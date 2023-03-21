@@ -44,3 +44,6 @@ Password is set to 1234
 ```bash
 docker run --gpus all --memory 64g --memory-swap -1 -it -v transformers:/transformers -e JUPYTER_PASSWORD=1234 -p 8888:8888 abacaj90/pytorch2:cuda12.0.0
 ```
+
+Visit url:
+[Jupyter localhost](http://127.0.0.1:8888/login?next=%2Flab%3F)
