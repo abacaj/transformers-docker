@@ -32,12 +32,16 @@ RUN apt install --yes --no-install-recommends\
 	ln -s /usr/bin/python3.10 /usr/bin/python3
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python get-pip.py
-RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
 RUN pip install -U jupyterlab ipywidgets jupyter-archive
 RUN jupyter nbextension enable --py widgetsnbextension
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+
+ENV VENV=/opt/venv
+RUN python -m venv $VENV
+ENV PATH="$VENV/bin:$PATH"
+RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
 
 ADD start.sh /
 

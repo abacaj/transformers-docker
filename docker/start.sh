@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "pod started"
+echo "container started"
 
 if [[ $PUBLIC_KEY ]]
 then
@@ -19,10 +19,6 @@ then
     jupyter lab --allow-root --no-browser --port=8888 --ip=* --ServerApp.terminado_settings='{"shell_command":["/bin/bash"]}' --ServerApp.token=$JUPYTER_PASSWORD --ServerApp.allow_origin=* --ServerApp.preferred_dir=/workspace > jupyter.log 2>&1 & disown
 fi
 
-# create the env
-mkdir -p transformers
-python -m venv transformers/env
-
-# load it
+# load env
 echo "env ready"
-cd /transformers && /bin/bash --rcfile /transformers/env/bin/activate
+cd /transformers && /bin/bash --rcfile /opt/venv/bin/activate

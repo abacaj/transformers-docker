@@ -31,6 +31,14 @@ Run container with a maximum memory allocation, assign as much RAM as you need/s
 docker run --gpus all --memory 64g --memory-swap -1 -it -v transformers:/transformers -p 8888:8888 abacaj90/pytorch2:cuda12.0.0
 ```
 
+## Using VSCode
+
+Steps:
+
+- Attach to the dev container
+- Install python extension into the container from vscode extension tab
+- Select interpreter located at: `/opt/venv/bin/python`
+
 ## Build your own container
 
 ```bash
