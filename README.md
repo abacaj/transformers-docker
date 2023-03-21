@@ -48,7 +48,12 @@ docker build -t pytorch2:cuda12.0.0 -f docker/Dockerfile docker/
 
 ## Run with jupyter started on port 8888
 
-Password is set to 1234
+Jupyter:
+
+- Password is set to 1234
+- Jupyter will use the venv
+- Runs detached in background
+- You can still use VScode to attach to container if you like
 
 ```properties
 docker run --gpus all --memory 64g --memory-swap -1 -d -v transformers:/transformers -e JUPYTER_PASSWORD=1234 -p 8888:8888 abacaj90/pytorch2:cuda12.0.0
