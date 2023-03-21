@@ -44,5 +44,6 @@ RUN pip install torch torchvision torchaudio --extra-index-url https://download.
 ADD start.sh /
 RUN chmod +x /start.sh
 COPY kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
+WORKDIR /transformers
 
 ENTRYPOINT [ "/start.sh" ]
