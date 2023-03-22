@@ -41,9 +41,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
 ADD start.sh /
 RUN chmod +x /start.sh
 COPY kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
-RUN mkdir -p /opt/venv && \
-    python -m venv --system-site-packages --symlinks /opt/venv && \
-    source /opt/venv/bin/activate && \
+RUN mkdir -p /transformers/venv && \
+    python -m venv --system-site-packages --symlinks /transformers/venv && \
+    source /transformers/venv/bin/activate && \
     pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
 
 WORKDIR /transformers

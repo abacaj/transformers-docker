@@ -2,10 +2,6 @@
 
 echo "container started"
 
-# create the env
-mkdir -p /transformers
-cp -n -R /opt/venv /transformers/venv
-
 if [[ $PUBLIC_KEY ]]
 then
     mkdir -p ~/.ssh
