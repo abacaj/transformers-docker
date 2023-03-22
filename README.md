@@ -12,6 +12,12 @@ The workflow:
 4. Write code
 5. Run code
 
+Benefits:
+
+1. Consistent environment
+2. Stable cuda + torch + python versions
+3. Configured to use docker volumes so your models, dataset and environment is saved even if you exit the container
+
 Versions:
 
 - python 3.10

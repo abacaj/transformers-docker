@@ -41,11 +41,13 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
 ADD start.sh /
 RUN chmod +x /start.sh
 COPY kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
-RUN mkdir -p /transformers/venv && \
+RUN mkdir -p /transformers/venv /transformers/hf_model_cache /transformers/hf_dataset_cache && \
     python -m venv --system-site-packages --symlinks /transformers/venv && \
     source /transformers/venv/bin/activate && \
     pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
 
+ENV TRANSFORMERS_CACHE=/transformers/hf_model_cache
+ENV HF_DATASETS_CACHE=/transformers/hf_dataset_cache
 WORKDIR /transformers
 
 ENTRYPOINT [ "/start.sh" ]
