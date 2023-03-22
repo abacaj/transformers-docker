@@ -4,7 +4,7 @@ echo "container started"
 
 # create the env
 mkdir -p /transformers
-python -m venv --system-site-packages /usr/local/lib/python3.10/dist-packages /transformers/venv
+cp -n -R /opt/venv /transformers/venv
 
 if [[ $PUBLIC_KEY ]]
 then
