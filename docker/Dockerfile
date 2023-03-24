@@ -49,6 +49,5 @@ RUN mkdir -p /transformers/venv /transformers/hf_model_cache /transformers/hf_da
 ENV TRANSFORMERS_CACHE=/transformers/hf_model_cache
 ENV HF_DATASETS_CACHE=/transformers/hf_dataset_cache
 WORKDIR /transformers
-RUN chmod +x /start.sh
 
 CMD [ "/start.sh" ]
