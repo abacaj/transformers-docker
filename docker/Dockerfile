@@ -41,6 +41,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
 ADD start.sh /
 RUN chmod +x /start.sh
 COPY kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
+
 RUN mkdir -p /transformers/venv /transformers/hf_model_cache /transformers/hf_dataset_cache && \
     python -m venv --system-site-packages --symlinks /transformers/venv && \
     source /transformers/venv/bin/activate && \
