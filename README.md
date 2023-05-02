@@ -29,19 +29,19 @@ Versions:
 Recommended to add a volume:
 
 ```bash
-docker volume create ml
+docker volume create transformers
 ```
 
 Run container with a maximum memory allocation, assign as much RAM as you need/system can support minus a small window. In some cases assigning max system memory could result in your system freezing when loading large models:
 
 ```properties
-docker run --gpus all --memory 64g --memory-swap -1 -it --mount type=volume,source=ml,target=/transformers abacaj90/pytorch2:cuda12.0.0
+docker run --gpus all --memory 64g --memory-swap -1 -it --mount type=volume,source=transformers,target=/transformers abacaj90/pytorch2:cuda12.0.0
 ```
 
 If you get any issues with DeepSpeed you can run on cuda 11.8.0
 
 ```properties
-docker run --gpus all --memory 64g --memory-swap -1 -it --mount type=volume,source=ml,target=/transformers abacaj90/pytorch2:cuda11.8.0
+docker run --gpus all --memory 64g --memory-swap -1 -it --mount type=volume,source=transformers,target=/transformers abacaj90/pytorch2:cuda11.8.0
 ```
 
 ## Using VSCode
