@@ -45,7 +45,7 @@ COPY kernel.json /usr/local/share/jupyter/kernels/python3/kernel.json
 RUN mkdir -p /transformers/venv /transformers/hf_model_cache /transformers/hf_dataset_cache && \
     python -m venv --system-site-packages --symlinks /transformers/venv && \
     source /transformers/venv/bin/activate && \
-    pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118
+    pip install torch==2.0.0 torchvision==1.51 torchaudio==2.0.0
 
 ENV TRANSFORMERS_CACHE=/transformers/hf_model_cache
 ENV HF_DATASETS_CACHE=/transformers/hf_dataset_cache
